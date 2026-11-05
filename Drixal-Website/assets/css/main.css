@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Force semantic colors through CSS vars (Tailwind often bakes hex at build time). */
+.text-ink { color: rgb(var(--c-ink) / var(--tw-text-opacity, 1)) !important; }
+.text-muted { color: rgb(var(--c-muted) / var(--tw-text-opacity, 1)) !important; }
+.text-muted\/60 { color: rgb(var(--c-muted) / 0.6) !important; }
+.text-muted\/70 { color: rgb(var(--c-muted) / 0.7) !important; }
+.bg-mist { background-color: rgb(var(--c-mist) / var(--tw-bg-opacity, 1)) !important; }
+.bg-surface { background-color: rgb(var(--c-surface) / var(--tw-bg-opacity, 1)) !important; }
+.bg-surface\/55 { background-color: rgb(var(--c-surface) / 0.55) !important; }
+.bg-surface\/70 { background-color: rgb(var(--c-surface) / 0.7) !important; }
+.bg-surface\/75 { background-color: rgb(var(--c-surface) / 0.75) !important; }
+.bg-surface\/85 { background-color: rgb(var(--c-surface) / 0.85) !important; }
+.bg-surface\/90 { background-color: rgb(var(--c-surface) / 0.9) !important; }
+.border-line { border-color: rgb(var(--c-line) / var(--tw-border-opacity, 1)) !important; }
+.border-line\/80 { border-color: rgb(var(--c-line) / 0.8) !important; }
+.border-ink\/10 { border-color: rgb(var(--c-ink) / 0.1) !important; }
+.border-ink\/20 { border-color: rgb(var(--c-ink) / 0.2) !important; }
+.from-surface {
+  --tw-gradient-from: rgb(var(--c-surface)) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(var(--c-surface) / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.via-mist {
+  --tw-gradient-to: rgb(var(--c-mist) / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(var(--c-mist)) var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+.to-surface { --tw-gradient-to: rgb(var(--c-surface)) var(--tw-gradient-to-position) !important; }
+
+@layer base {
+  /* Channel values (no rgb()) so Tailwind opacity modifiers work with dark mode. */
+  :root {
+    --c-bg: 255 255 255;
+    --c-surface: 255 255 255;
+    --c-mist: 246 248 253;
+    --c-section-a: 238 241 246;
+    --c-section-b: 244 246 250;
+    --c-hero: 244 247 252;
+    --c-ink: 11 19 48;
+    --c-muted: 91 103 133;
+    --c-line: 230 234 245;
+    --c-field: 251 252 255;
+    --c-nav-active: 241 245 249;
+    --c-header-border: rgb(241 245 249);
+    --c-header-border-scrolled: rgb(226 232 240 / 0.9);
+    --c-header-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+    --c-header-shadow-scrolled: 0 12px 36px rgba(0, 0, 0, 0.12);
+  }
+
+  html.dark {
+    --c-bg: 7 11 24;
+    --c-surface: 14 21 40;
+    --c-mist: 16 24 42;
+    --c-section-a: 10 16 32;
+    --c-section-b: 12 18 34;
+    --c-hero: 8 14 28;
+    --c-ink: 236 240 250;
+    --c-muted: 154 166 195;
+    --c-line: 36 48 78;
+    --c-field: 12 18 34;
+    --c-nav-active: 28 40 68;
+    --c-header-border: rgb(36 48 78 / 0.9);
+    --c-header-border-scrolled: rgb(48 64 100 / 0.95);
+    --c-header-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
+    --c-header-shadow-scrolled: 0 12px 36px rgba(0, 0, 0, 0.45);
+  }
+
+  html { scroll-behavior: smooth; }
+  html,
+  body,
+  button,
+  input,
+  select,
+  textarea {
+    font-family: 'Plus Jakarta Sans', 'Almarai', system-ui, sans-serif !important;
+  }
+  html[dir='rtl'],
+  html[dir='rtl'] body,
+  html[dir='rtl'] button,
+  html[dir='rtl'] input,
+  html[dir='rtl'] select,
+  html[dir='rtl'] textarea {
+    font-family: 'Almarai', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  }
+  body {
+    @apply leading-relaxed antialiased;
+    background-color: rgb(var(--c-bg));
+    color: rgb(var(--c-ink));
+    transition: background-color .35s ease, color .35s ease;
+  }
+  ::selection { @apply bg-brand-cyan/30; }
+  :focus-visible { @apply outline-none ring-2 ring-brand-cyan ring-offset-2 ring-offset-transparent; }
+}
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-[1180px] px-4 sm:px-6; }
+  .section { @apply py-20 md:py-24; }
+
+  .eyebrow { @apply mb-3 inline-block text-xs font-bold uppercase tracking-[.12em] text-brand-blue; }
+  html[dir='rtl'] .eyebrow { @apply tracking-normal; }
+  .h2 { @apply text-[clamp(1.8rem,3.4vw,2.6rem)] font-extrabold leading-tight tracking-tight; }
+  .lead { @apply mt-4 max-w-[56ch] text-[1.05rem]; color: rgb(var(--c-muted)); }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[.95rem] font-bold
+           transition duration-300 disabled:cursor-not-allowed disabled:opacity-70;
+  }
+  .btn-primary {
+    @apply bg-brand text-white shadow-brand hover:-translate-y-0.5
+           hover:shadow-[0_16px_36px_-8px_rgba(0,200,255,.7)] disabled:hover:translate-y-0;
+  }
+  .btn-ghost { @apply border border-white/30 bg-white/[.08] text-white backdrop-blur hover:bg-white/[.18]; }
+
+  .text-gradient { @apply bg-brand-text bg-clip-text text-transparent; }
+
+  .field {
+    @apply w-full rounded-xl border-[1.5px] border-line px-4 py-3 text-ink transition
+           placeholder:text-muted/60 focus:border-brand-blue focus:outline-none focus:ring-4 focus:ring-brand-blue/10;
+    background-color: rgb(var(--c-field));
+  }
+  .field:focus { background-color: rgb(var(--c-surface)); }
+  .field-invalid { @apply border-rose-400 focus:border-rose-500 focus:ring-rose-500/10; }
+
+  .section-tone-a { background-color: rgb(var(--c-section-a)); }
+  .section-tone-b { background-color: rgb(var(--c-section-b)); }
+  .hero-tone { background-color: rgb(var(--c-hero)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

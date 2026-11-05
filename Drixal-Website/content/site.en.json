@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "headline": "One platform. Every department in sync.",
+    "highlight": "Every department in sync",
+    "subheadline": "Drixal ERP is an AI-ready enterprise workspace that connects people, projects, documents, sales, finance, and operations in one place — bilingual and role-based.",
+    "ctaText": "Book a free consultation",
+    "secondaryCtaText": "Explore services"
+  },
+  "productBlurb": "Drixal ERP unifies administration, HR, CRM, product catalogue, document control, procurement, project delivery, finance, service requests, and risk — with optional hospital, education, and fleet packs. Employees work from a shared dashboard with inbox, tasks, timesheet, and self-service requests, while each service ships its own analytics so leaders see pipeline, workforce, compliance, and project performance without switching systems.",
+  "workspace": [
+    { "id": "tasks", "icon": "tasks", "title": "Tasks", "description": "Kanban-style personal task board so employees stay on top of assigned work without leaving the ERP." },
+    { "id": "calendar", "icon": "calendar", "title": "Calendar", "description": "Shared calendar view for deadlines, meetings, and operational schedules across the organization." },
+    { "id": "timesheet", "icon": "timesheet", "title": "Timesheet", "description": "Log hours against assigned work by week — transparent effort tracking tied to real projects and tasks." },
+    { "id": "catalogue", "icon": "catalogue", "title": "Services Catalogue", "description": "Self-service hub to browse and submit internal requests (leave, loans, expenses, IT, and more)." },
+    { "id": "requests", "icon": "requests", "title": "My Requests", "description": "Track status, reviews, and outcomes for every service request you've submitted." },
+    { "id": "inbox", "icon": "inbox", "title": "Inbox", "description": "Action center for pending approvals and workflow tasks — one place to review and decide." },
+    { "id": "attendance", "icon": "gps", "title": "Attendance & GPS", "description": "Attendance capture and field tracking with planned stops and locations for mobile teams." }
+  ],
+  "services": [
+    { "id": "hrm", "group": "module", "icon": "hrm", "title": "HRM", "description": "Manage people, payroll, evaluations, and org structure with a live workforce dashboard." },
+    { "id": "crm", "group": "module", "icon": "crm", "title": "CRM & Sales", "description": "From lead to invoice: pipeline, deals, quotes, and revenue visibility." },
+    { "id": "pmo", "group": "module", "icon": "pmo", "title": "PMO", "description": "Portfolios, programmes, and projects with governance and delivery insights." },
+    { "id": "dms", "group": "module", "icon": "dms", "title": "DMS", "description": "Controlled documents with SLA compliance and weekly performance reports." },
+    { "id": "fin", "group": "module", "icon": "fin", "title": "Finance", "description": "Accounts, journals, treasury, and payments tied to the rest of the business." },
+    { "id": "srm", "group": "module", "icon": "srm", "title": "SRM", "description": "Supplier bidding through purchase orders and AP documents in one flow." },
+    { "id": "srv", "group": "module", "icon": "srv", "title": "Services", "description": "Internal request catalogue with workflows and SLA tracking." },
+    { "id": "rsk", "group": "module", "icon": "rsk", "title": "Risk", "description": "Enterprise risk strategy and issue management beside daily operations." },
+    { "id": "industry", "group": "industry", "icon": "industry", "title": "Industry packs", "description": "Hospital, School/University, and Fleet services for specialized ops." }
+  ],
+  "projects": [
+    {
+      "id": "drixal-erp",
+      "name": "Drixal ERP Core",
+      "summary": "AI-ready multi-tenant workspace: ADM, ORG, HRM, CAT, CRM, DMS, SRM, PMO, FIN, SRV and RSK — bilingual EN/AR with role-based access.",
+      "thumbnailUrl": "/images/drixal-hero.png",
+      "tags": ["Nuxt 3", ".NET 8", "PostgreSQL", "EN / AR"],
+      "liveUrl": null
+    },
+    {
+      "id": "pack-hsp",
+      "name": "Hospital Management",
+      "summary": "Clinical operations: doctors, nurses, patients, rooms, medications, lab, radiology, pharmacy, physio, nutrition and therapy workflows.",
+      "thumbnailUrl": null,
+      "tags": ["HSP", "Clinical", "Pharmacy"],
+      "liveUrl": null
+    },
+    {
+      "id": "pack-scl",
+      "name": "School / University",
+      "summary": "Education operations: students, teachers, classes, courses, programs, tracks and enrollment — from academic structure to day-to-day teaching.",
+      "thumbnailUrl": null,
+      "tags": ["SCL", "Education"],
+      "liveUrl": null
+    },
+    {
+      "id": "pack-flt",
+      "name": "Fleet Management",
+      "summary": "Vehicle and driver operations: fleets, routes, trips, fuel, manufacturers, cities and road conditions for logistics-heavy organizations.",
+      "thumbnailUrl": null,
+      "tags": ["FLT", "Logistics"],
+      "liveUrl": null
+    },
+    {
+      "id": "adm-org",
+      "name": "Administration & Organization",
+      "summary": "Secure foundation — users, roles, entities, currencies and confidentiality — plus departments, branches, teams and objectives every service inherits.",
+      "thumbnailUrl": null,
+      "tags": ["ADM", "ORG", "Multi-tenant"],
+      "liveUrl": null
+    },
+    {
+      "id": "dashboards",
+      "name": "Service Dashboards",
+      "summary": "Each service ships analytics so leaders see pipeline, workforce, compliance and project health without switching systems.",
+      "thumbnailUrl": null,
+      "tags": ["Analytics", "Realtime"],
+      "liveUrl": null
+    }
+  ],
+  "stats": [
+    { "value": "15+", "label": "Connected services" },
+    { "value": "EN / AR", "label": "Bilingual & RTL-ready" },
+    { "value": "1", "label": "Shared source of truth" }
+  ]
+}

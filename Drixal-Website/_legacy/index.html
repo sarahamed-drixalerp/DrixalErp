@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drixal — Software &amp; ERP Solutions</title>
+<meta name="description" content="Drixal builds ERP systems, web and mobile apps, and digital products for ambitious businesses.">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#050b1f; --navy2:#0a1433; --blue:#0a4bff; --cyan:#00c8ff;
+  --ink:#0b1330; --muted:#5b6785; --line:#e6eaf5; --bg:#f6f8fd; --white:#fff;
+  --grad:linear-gradient(135deg,#0a4bff,#00c8ff);
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','Cairo',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+html[dir=rtl] body{font-family:'Cairo','Inter',system-ui,sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
+section{padding-block:96px}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem}
+html[dir=rtl] .eyebrow{letter-spacing:0}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;font-weight:800;letter-spacing:-.02em}
+.lead{color:var(--muted);max-width:56ch;margin-top:.9rem;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.7rem;border-radius:999px;font-weight:700;font-size:.95rem;border:0;cursor:pointer;transition:.25s;font-family:inherit}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 30px -8px rgba(10,75,255,.6)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px -8px rgba(0,200,255,.7)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:rgba(255,255,255,.18)}
+
+/* NAV */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.3s}
+header.scrolled{background:rgba(5,11,31,.82);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.nav img{height:34px}
+.menu{display:flex;gap:2rem;align-items:center}
+.menu a{color:rgba(255,255,255,.8);font-weight:600;font-size:.93rem;transition:.2s}
+.menu a:hover{color:#fff}
+.lang{border:1px solid rgba(255,255,255,.35);color:#fff;background:transparent;border-radius:999px;padding:.4rem 1rem;font-weight:700;cursor:pointer;font-family:'Cairo','Inter',sans-serif}
+.lang:hover{background:rgba(255,255,255,.14)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden;padding:120px 0 80px;
+  background:radial-gradient(ellipse at 50% 38%,#0b2a8a 0%,#071545 38%,var(--navy) 75%)}
+#fx{position:absolute;inset:0;width:100%;height:100%}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;background:linear-gradient(transparent,#fff);opacity:.0}
+.glow{position:absolute;width:760px;height:760px;border-radius:50%;left:50%;top:44%;translate:-50% -50%;
+  background:radial-gradient(circle,rgba(0,200,255,.35),rgba(10,75,255,.18) 45%,transparent 70%);filter:blur(30px);animation:pulse 6s ease-in-out infinite}
+@keyframes pulse{50%{scale:1.12;opacity:.8}}
+.hero-in{position:relative;z-index:2}
+.hero-logo{width:min(640px,86vw);margin:0 auto 2rem;filter:drop-shadow(0 0 40px rgba(0,200,255,.55));animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.hero h1{font-size:clamp(1.5rem,3.4vw,2.5rem);font-weight:800;line-height:1.25;letter-spacing:-.01em;max-width:22ch;margin-inline:auto}
+.hero h1 span{background:linear-gradient(90deg,#5ee1ff,#8fb0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:rgba(255,255,255,.75);max-width:52ch;margin:1.1rem auto 2.2rem;font-size:1.1rem}
+.cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.scroll{position:absolute;bottom:26px;left:50%;translate:-50% 0;z-index:2;width:26px;height:42px;border:2px solid rgba(255,255,255,.45);border-radius:14px}
+.scroll::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#fff;animation:sc 1.6s infinite}
+@keyframes sc{60%{transform:translateY(14px);opacity:0}}
+
+/* SERVICES */
+.head{text-align:center;display:flex;flex-direction:column;align-items:center;margin-bottom:3rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem;transition:.3s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:var(--grad);opacity:0;transition:.3s;z-index:0}
+.card>*{position:relative;z-index:1;transition:color .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -20px rgba(10,75,255,.5);border-color:transparent}
+.card:hover::before{opacity:1}
+.card:hover h3,.card:hover p{color:#fff}
+.ico{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,rgba(10,75,255,.12),rgba(0,200,255,.18));display:grid;place-items:center;margin-bottom:1.2rem;transition:.3s}
+.card:hover .ico{background:rgba(255,255,255,.2)}
+.ico svg{width:26px;height:26px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:.3s}
+.card:hover .ico svg{stroke:#fff}
+.card h3{font-size:1.15rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.95rem}
+
+/* SHOWCASE */
+.show{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.show .lead{color:rgba(255,255,255,.7)}
+.show .eyebrow{color:var(--cyan)}
+.split{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:center}
+.ticks{list-style:none;margin-top:1.6rem;display:grid;gap:.8rem}
+.ticks li{display:flex;gap:.7rem;align-items:center;font-weight:600}
+.ticks li::before{content:"";width:22px;height:22px;flex:none;border-radius:50%;background:var(--grad) center/12px no-repeat;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E"),var(--grad)}
+.show img{filter:drop-shadow(0 30px 60px rgba(0,120,255,.45));animation:float 7s ease-in-out infinite}
+.stats{display:flex;gap:2.4rem;margin-top:2.2rem;flex-wrap:wrap}
+.stats b{display:block;font-size:2.2rem;font-weight:800;background:linear-gradient(90deg,#5ee1ff,#8fb0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats span{font-size:.85rem;color:rgba(255,255,255,.65)}
+
+/* CONTACT */
+.contact{background:var(--bg)}
+.cbox{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
+.info{display:grid;gap:1rem;margin-top:2rem}
+.info a,.info div{display:flex;align-items:center;gap:.9rem;font-weight:600}
+.info .ico{margin:0;width:44px;height:44px;border-radius:14px}
+form{background:#fff;border:1px solid var(--line);border-radius:24px;padding:2rem;box-shadow:0 30px 60px -35px rgba(10,30,100,.35);display:grid;gap:1rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+label{font-size:.82rem;font-weight:700;color:var(--ink);display:grid;gap:.4rem}
+input,select,textarea{font:inherit;padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:12px;background:#fbfcff;color:var(--ink);transition:.2s;width:100%}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px rgba(10,75,255,.12);background:#fff}
+textarea{min-height:120px;resize:vertical}
+.hp{position:absolute;left:-9999px}
+#msg{font-weight:600;font-size:.9rem;min-height:1.3em}
+#msg.ok{color:#0a9b5c}#msg.err{color:#d6336c}
+
+footer{background:var(--navy);color:rgba(255,255,255,.65);padding:2.2rem 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+footer img{height:28px}
+
+.reveal{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  section{padding-block:72px}
+  .grid{grid-template-columns:1fr 1fr}
+  .split,.cbox{grid-template-columns:1fr}
+  .menu{position:fixed;inset:76px 0 auto 0;background:rgba(5,11,31,.97);flex-direction:column;padding:1.5rem;gap:1.2rem;display:none}
+  .menu.open{display:flex}
+  .burger{display:block}
+}
+@media(max-width:560px){.grid,.row{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#home"><img src="assets/drixal-logo-white.png" alt="Drixal"></a>
+    <nav class="menu" id="menu">
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <button class="lang" id="lang" type="button" aria-label="Switch language">العربية</button>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="glow"></div>
+  <div class="wrap hero-in">
+    <img class="hero-logo" src="assets/drixal-logo-white.png" alt="Drixal">
+    <h1 data-i18n-html="hero_title">We build <span>digital systems</span> that move business forward</h1>
+    <p data-i18n="hero_sub">ERP platforms, web &amp; mobile apps and beautiful interfaces — designed and engineered end to end.</p>
+    <div class="cta">
+      <a href="#contact" class="btn btn-primary" data-i18n="cta_talk">Start a project</a>
+      <a href="#services" class="btn btn-ghost" data-i18n="cta_services">Our services</a>
+    </div>
+  </div>
+  <div class="scroll"></div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow" data-i18n="s_eyebrow">What we do</span>
+      <h2 data-i18n="s_title">Services built around your growth</h2>
+      <p class="lead" data-i18n="s_lead">Everything you need to go from idea to a running product, with one team.</p>
+    </div>
+    <div class="grid">
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3 data-i18n="s1_t">ERP Systems</h3><p data-i18n="s1_d">Finance, HR, projects and operations in one connected platform tailored to your workflow.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg></div>
+        <h3 data-i18n="s2_t">Custom Software</h3><p data-i18n="s2_d">Scalable, secure back-end and web applications engineered for performance.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+        <h3 data-i18n="s3_t">Mobile Apps</h3><p data-i18n="s3_d">Fast, intuitive iOS and Android experiences your users will love.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div>
+        <h3 data-i18n="s4_t">UI / UX Design</h3><p data-i18n="s4_d">Clean, modern interfaces and brand identity that make products feel effortless.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M7 18a5 5 0 010-10 6 6 0 0111.5 1.5A4 4 0 0118 18z"/></svg></div>
+        <h3 data-i18n="s5_t">Cloud &amp; Integration</h3><p data-i18n="s5_d">Deployment, APIs and integrations that connect your tools and keep them running.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 13a8 8 0 0116 0v4a2 2 0 01-2 2h-1v-6h3M4 13v4a2 2 0 002 2h1v-6H4"/></svg></div>
+        <h3 data-i18n="s6_t">Support &amp; Maintenance</h3><p data-i18n="s6_d">Dedicated care after launch — updates, monitoring and quick response.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / SHOWCASE -->
+<section class="show" id="about">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="a_eyebrow">Why Drixal</span>
+      <h2 data-i18n="a_title">Simple, fast and made to last</h2>
+      <p class="lead" data-i18n="a_lead">We combine design thinking with solid engineering, so your product looks great and works flawlessly.</p>
+      <ul class="ticks">
+        <li data-i18n="a_1">Arabic &amp; English, RTL-ready products</li>
+        <li data-i18n="a_2">Clear process and transparent delivery</li>
+        <li data-i18n="a_3">Secure, scalable architecture</li>
+      </ul>
+      <div class="stats">
+        <div><b>50+</b><span data-i18n="st1">Projects delivered</span></div>
+        <div><b>30+</b><span data-i18n="st2">Happy clients</span></div>
+        <div><b>24/7</b><span data-i18n="st3">Support</span></div>
+      </div>
+    </div>
+    <div class="reveal"><img src="assets/drixal-hero.png" alt="Drixal ERP dashboard preview" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap cbox">
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="c_eyebrow">Contact us</span>
+      <h2 data-i18n="c_title">Let's build something great</h2>
+      <p class="lead" data-i18n="c_lead">Tell us about your project and we'll get back to you within one business day.</p>
+      <div class="info">
+        <a href="mailto:info@drixal.com"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span dir="ltr">info@drixal.com</span></a>
+        <a href="tel:+200000000000"><span class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></span><span dir="ltr">+20 000 000 0000</span></a>
+        <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 00-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span data-i18n="c_addr">Cairo, Egypt</span></div>
+      </div>
+    </div>
+    <form id="form" class="reveal" novalidate>
+      <div class="row">
+        <label><span data-i18n="f_name">Full name</span><input name="name" required autocomplete="name"></label>
+        <label><span data-i18n="f_email">Email</span><input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="row">
+        <label><span data-i18n="f_phone">Phone</span><input name="phone" type="tel" autocomplete="tel"></label>
+        <label><span data-i18n="f_service">Service</span>
+          <select name="service">
+            <option data-i18n="s1_t">ERP Systems</option><option data-i18n="s2_t">Custom Software</option>
+            <option data-i18n="s3_t">Mobile Apps</option><option data-i18n="s4_t">UI / UX Design</option>
+            <option data-i18n="s5_t">Cloud &amp; Integration</option><option data-i18n="f_other">Other</option>
+          </select></label>
+      </div>
+      <label><span data-i18n="f_msg">Message</span><textarea name="message" required></textarea></label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary" type="submit" data-i18n="f_send">Send message</button>
+      <p id="msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/drixal-logo-white.png" alt="Drixal">
+    <span>© <span id="yr"></span> Drixal. <span data-i18n="rights">All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script>
+/* ====== CONFIG ======
+   Set FORM_ENDPOINT to a Formspree / your API URL (POST JSON). If empty, the form
+   opens the visitor's email app addressed to CONTACT_EMAIL as a fallback. */
+const FORM_ENDPOINT = "";
+const CONTACT_EMAIL = "info@drixal.com";
+
+const T = {
+ en:{nav_services:"Services",nav_about:"About",nav_contact:"Contact",
+  hero_title:'We build <span>digital systems</span> that move business forward',
+  hero_sub:"ERP platforms, web & mobile apps and beautiful interfaces — designed and engineered end to end.",
+  cta_talk:"Start a project",cta_services:"Our services",
+  s_eyebrow:"What we do",s_title:"Services built around your growth",s_lead:"Everything you need to go from idea to a running product, with one team.",
+  s1_t:"ERP Systems",s1_d:"Finance, HR, projects and operations in one connected platform tailored to your workflow.",
+  s2_t:"Custom Software",s2_d:"Scalable, secure back-end and web applications engineered for performance.",
+  s3_t:"Mobile Apps",s3_d:"Fast, intuitive iOS and Android experiences your users will love.",
+  s4_t:"UI / UX Design",s4_d:"Clean, modern interfaces and brand identity that make products feel effortless.",
+  s5_t:"Cloud & Integration",s5_d:"Deployment, APIs and integrations that connect your tools and keep them running.",
+  s6_t:"Support & Maintenance",s6_d:"Dedicated care after launch — updates, monitoring and quick response.",
+  a_eyebrow:"Why Drixal",a_title:"Simple, fast and made to last",a_lead:"We combine design thinking with solid engineering, so your product looks great and works flawlessly.",
+  a_1:"Arabic & English, RTL-ready products",a_2:"Clear process and transparent delivery",a_3:"Secure, scalable architecture",
+  st1:"Projects delivered",st2:"Happy clients",st3:"Support",
+  c_eyebrow:"Contact us",c_title:"Let's build something great",c_lead:"Tell us about your project and we'll get back to you within one business day.",
+  c_addr:"Cairo, Egypt",f_name:"Full name",f_email:"Email",f_phone:"Phone",f_service:"Service",f_other:"Other",f_msg:"Message",f_send:"Send message",
+  ok:"Thank you! We'll be in touch shortly.",err:"Something went wrong. Please try again or email us.",req:"Please fill in your name, a valid email and a message.",sending:"Sending…",
+  rights:"All rights reserved.",langBtn:"العربية"},
+ ar:{nav_services:"خدماتنا",nav_about:"من نحن",nav_contact:"تواصل معنا",
+  hero_title:'نبني <span>أنظمة رقمية</span> تدفع أعمالك إلى الأمام',
+  hero_sub:"أنظمة ERP وتطبيقات ويب وموبايل وواجهات أنيقة — نصممها ونطورها من الفكرة حتى التشغيل.",
+  cta_talk:"ابدأ مشروعك",cta_services:"خدماتنا",
+  s_eyebrow:"ماذا نقدم",s_title:"خدمات مصممة لنمو أعمالك",s_lead:"كل ما تحتاجه للانتقال من الفكرة إلى منتج يعمل، مع فريق واحد.",
+  s1_t:"أنظمة ERP",s1_d:"المالية والموارد البشرية والمشاريع والعمليات في منصة واحدة مترابطة تناسب سير عملك.",
+  s2_t:"برمجيات مخصصة",s2_d:"أنظمة خلفية وتطبيقات ويب آمنة وقابلة للتوسع وعالية الأداء.",
+  s3_t:"تطبيقات الموبايل",s3_d:"تجارب سريعة وسهلة لأنظمة iOS وأندرويد يحبها مستخدموك.",
+  s4_t:"تصميم UI / UX",s4_d:"واجهات حديثة وهوية بصرية تجعل منتجك سهل الاستخدام وجذاباً.",
+  s5_t:"السحابة والتكامل",s5_d:"نشر وواجهات برمجية وتكاملات تربط أدواتك وتبقيها تعمل بكفاءة.",
+  s6_t:"الدعم والصيانة",s6_d:"اهتمام مستمر بعد الإطلاق — تحديثات ومراقبة واستجابة سريعة.",
+  a_eyebrow:"لماذا دريكسال",a_title:"بسيط وسريع ومبني ليدوم",a_lead:"نجمع بين التفكير التصميمي والهندسة المتقنة ليبدو منتجك رائعاً ويعمل بلا أخطاء.",
+  a_1:"منتجات بالعربية والإنجليزية تدعم RTL",a_2:"آلية عمل واضحة وتسليم شفاف",a_3:"بنية آمنة وقابلة للتوسع",
+  st1:"مشروع منجز",st2:"عميل سعيد",st3:"دعم متواصل",
+  c_eyebrow:"تواصل معنا",c_title:"لنبنِ معاً شيئاً رائعاً",c_lead:"أخبرنا عن مشروعك وسنرد عليك خلال يوم عمل واحد.",
+  c_addr:"القاهرة، مصر",f_name:"الاسم الكامل",f_email:"البريد الإلكتروني",f_phone:"رقم الهاتف",f_service:"الخدمة",f_other:"أخرى",f_msg:"رسالتك",f_send:"إرسال الرسالة",
+  ok:"شكراً لك! سنتواصل معك قريباً.",err:"حدث خطأ ما. حاول مرة أخرى أو راسلنا عبر البريد.",req:"من فضلك أدخل اسمك وبريداً صحيحاً ورسالتك.",sending:"جارٍ الإرسال…",
+  rights:"جميع الحقوق محفوظة.",langBtn:"English"}
+};
+let lang = 'en';
+try{ lang = localStorage.getItem('lang') || ((navigator.language||'').startsWith('ar')?'ar':'en'); }catch(e){}
+function apply(l){
+  lang=l; const d=T[l];
+  document.documentElement.lang=l; document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(e=>{const v=d[e.dataset.i18n]; if(v!==undefined) e.innerHTML=v;});
+  document.querySelectorAll('[data-i18n-html]').forEach(e=>e.innerHTML=d[e.dataset.i18nHtml]);
+  document.getElementById('lang').textContent=d.langBtn;
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+document.getElementById('lang').onclick=()=>apply(lang==='en'?'ar':'en');
+apply(lang);
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* nav */
+const hd=document.querySelector('header'),menu=document.getElementById('menu');
+addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>30),{passive:true});
+document.getElementById('burger').onclick=()=>menu.classList.toggle('open');
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((e,i)=>{e.style.transitionDelay=(i%3)*90+'ms';io.observe(e)});
+
+/* hero particles: floating "pixels" echoing the logo mark */
+(function(){
+  const c=document.getElementById('fx'),x=c.getContext('2d');let w,h,P=[];
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function size(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;
+    P=Array.from({length:Math.min(70,Math.round(w/22))},()=>({x:Math.random()*w,y:Math.random()*h,s:3+Math.random()*9,v:.15+Math.random()*.5,a:.15+Math.random()*.5,c:Math.random()>.5?'0,200,255':'60,120,255'}));}
+  function draw(){x.clearRect(0,0,w,h);
+    for(const p of P){p.y-=p.v;p.x+=p.v*.4;if(p.y<-12||p.x>w+12){p.y=h+12;p.x=Math.random()*w}
+      x.fillStyle=`rgba(${p.c},${p.a})`;x.beginPath();x.roundRect(p.x,p.y,p.s,p.s,p.s*.25);x.fill()}
+    if(!reduce)requestAnimationFrame(draw)}
+  addEventListener('resize',size);size();draw();
+})();
+
+/* contact form */
+document.getElementById('form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const f=e.target,m=document.getElementById('msg'),d=T[lang],v=Object.fromEntries(new FormData(f));
+  m.className='';
+  if(v.website) return;                                   // honeypot
+  if(!v.name.trim()||!/^\S+@\S+\.\S+$/.test(v.email)||!v.message.trim()){m.textContent=d.req;m.className='err';return}
+  if(!FORM_ENDPOINT){
+    const body=`Name: ${v.name}\nEmail: ${v.email}\nPhone: ${v.phone}\nService: ${v.service}\n\n${v.message}`;
+    location.href=`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Website inquiry — '+v.name)}&body=${encodeURIComponent(body)}`;
+    return;
+  }
+  m.textContent=d.sending;
+  try{
+    const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(v)});
+    if(!r.ok) throw 0; f.reset(); m.textContent=d.ok; m.className='ok';
+  }catch(_){m.textContent=d.err;m.className='err'}
+});
+</script>
+</body>
+</html>
